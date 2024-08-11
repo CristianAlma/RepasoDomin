@@ -3,16 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Agregar Cliente</title>
+<title>Agregar Venta</title>
 <style>
+    /* Estilos opcionales para mejorar la presentación */
     body {
-        font-family: Arial, sans-serif;
-        padding: 20px;
-        background-image: url(https://www.10wallpaper.com/wallpaper/1366x768/1504/oceanfront_phuket_thailand-photo_HD_wallpaper_1366x768.jpg);
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-image: url(https://www.10wallpaper.com/wallpaper/1366x768/1504/oceanfront_phuket_thailand-photo_HD_wallpaper_1366x768.jpg);
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-size: cover; /* Ajusta la imagen para cubrir toda la ventana del navegador */
+    background-position: center; /* Centra la imagen en la ventana del navegador */
+    background-attachment: fixed; /* Mantiene la imagen fija durante el desplazamiento */
     }
     form {
         max-width: 600px;
@@ -44,31 +45,35 @@
         background-color: #218838;
     }
     .btn-back {
-        display: inline-block;
-        padding: 10px 20px;
-        font-size: 16px;
-        font-weight: bold;
-        color: white;
-        background-color: #007bff;
-        border: none;
-        border-radius: 5px;
-        text-align: center;
-        text-decoration: none;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
     }
+
     .btn-back:hover {
         background-color: #0056b3;
     }
+
 </style>
 </head>
 <body>
 <br>
 <br>
-<h2><center>Agregar Nuevo Cliente</center></h2>
+<h2><center>Agregar Nuevo Gerente</center></h2>
 <br>
 <br>
-<form id="addCustomerForm">
+
+
+<form id="addRegionForm">
     <label for="nombre">Nombre:</label>
     <input type="text" id="nombre" name="nombre" required>
     
@@ -84,20 +89,15 @@
     <label for="direccion">Dirección:</label>
     <input type="text" id="direccion" name="direccion" required>
     
-    <label for="age">Edad:</label>
-    <input type="number" id="age" name="age" required>
-    <br>
-    <br>
-    <center><button type="submit">Agregar Cliente</button></center>
+    <center><button type="submit">Agregar Gerente</button></center>
 </form>
 <br>
 <br>
 <br>
-<center><a href="index.html" class="btn-back">Regresar al Inicio</a></center>
-
+<center><a href="index.html" class="btn-back">Regresar al Inicio</a></center> 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        document.getElementById('addCustomerForm').addEventListener('submit', async (event) => {
+        document.getElementById('addRegionForm').addEventListener('submit', async (event) => {
             event.preventDefault();
             
             const nombre = document.getElementById('nombre').value;
@@ -105,38 +105,37 @@
             const cargo = document.getElementById('cargo').value;
             const correo = document.getElementById('correo').value;
             const direccion = document.getElementById('direccion').value;
-            const age = parseInt(document.getElementById('age').value);
             
-            const cliente = {
+            const region = {
                 nombre,
                 apellido,
                 cargo,
                 correo,
-                direccion,
-                age
+                direccion
             };
 
             try {
-                const response = await fetch('http://52.23.165.207:3000/api/customers', {
+                const response = await fetch('http://52.23.165.207:3000/api/regiones', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify(cliente)
+                    body: JSON.stringify(region)
                 });
 
                 if (!response.ok) {
-                    throw new Error('Error al agregar el cliente: ${response.statusText}');
+                    throw new Error('Error al agregar la region');
                 }
 
-                alert('Cliente agregado con éxito');
-                document.getElementById('addCustomerForm').reset();
+                alert('Region agregado con éxito');
+                document.getElementById('addRegionForm').reset();
             } catch (error) {
                 console.error('Error:', error);
-                alert('Hubo un error al agregar el cliente');
+                alert('Hubo un error al agregar la region');
             }
         });
     });
 </script>
+
 </body>
 </html>

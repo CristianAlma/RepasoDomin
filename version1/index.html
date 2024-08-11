@@ -102,7 +102,7 @@
         /MOSTRAR DATOS EN TABLA USANDO FETCH/
         document.addEventListener('DOMContentLoaded', fetchClientes);
         async function fetchClientes() {
-            const response = await fetch('http://54.196.141.234:3000/api/customers');
+            const response = await fetch('http://52.23.165.207:3000/api/customers');
             const clientes = await response.json();
             const tbody = document.getElementById('clientesTable').querySelector('tbody');
             tbody.innerHTML = '';
@@ -155,7 +155,7 @@
         /MOSTRAR DATOS EN TABLA USANDO FETCH/
         document.addEventListener('DOMContentLoaded', fetchInventarios);
         async function fetchInventarios() {
-            const response = await fetch('http://54.196.141.234:3000/api/inventarios');
+            const response = await fetch('http://52.23.165.207:3000/api/inventarios');
             const inventarios = await response.json();
             const tbody = document.getElementById('inventariosTable').querySelector('tbody');
             tbody.innerHTML = '';
@@ -203,7 +203,7 @@
         // MOSTRAR DATOS EN TABLA USANDO FETCH
         document.addEventListener('DOMContentLoaded', fetchEmpleados);
         async function fetchEmpleados() {
-            const response = await fetch('http://54.196.141.234:3000/api/empleados');
+            const response = await fetch('http://52.23.165.207:3000/api/empleados');
             const empleados = await response.json();
             const tbody = document.getElementById('empleadosTable').querySelector('tbody');
             tbody.innerHTML = '';
@@ -249,7 +249,7 @@
         // MOSTRAR DATOS EN TABLA USANDO FETCH
         document.addEventListener('DOMContentLoaded', fetchProductos);
         async function fetchProductos() {
-            const response = await fetch('http://54.196.141.234:3000/api/productos');
+            const response = await fetch('http://52.23.165.207:3000/api/productos');
             const productos = await response.json();
             const tbody = document.getElementById('productosTable').querySelector('tbody');
             tbody.innerHTML = '';
@@ -316,7 +316,7 @@
     /MOSTRAR DATOS EN TABLA USANDO FETCH/
     document.addEventListener('DOMContentLoaded', fetchInventarios);
     async function fetchInventarios() {
-        const response = await fetch('http://54.196.141.234:3000/api/inventarios');
+        const response = await fetch('http://52.23.165.207:3000/api/inventarios');
         const inventarios = await response.json();
         const tbody = document.getElementById('inventariosTable').querySelector('tbody');
         tbody.innerHTML = '';
